@@ -1,0 +1,96 @@
+{
+  "_args": [
+    [
+      "ng2-highcharts@^0.2.3",
+      "/home/marv/workspace/epic/distributed_hyrise/clustermanager/angular2-seed-ng2-highcharts"
+    ]
+  ],
+  "_from": "ng2-highcharts@>=0.2.3 <0.3.0",
+  "_id": "ng2-highcharts@0.2.5",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/ng2-highcharts",
+  "_nodeVersion": "4.2.6",
+  "_npmOperationalInternal": {
+    "host": "packages-5-east.internal.npmjs.com",
+    "tmp": "tmp/ng2-highcharts-0.2.5.tgz_1455386305586_0.45546152140013874"
+  },
+  "_npmUser": {
+    "email": "bigous@gmail.com",
+    "name": "bigous"
+  },
+  "_npmVersion": "2.14.12",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "ng2-highcharts",
+    "raw": "ng2-highcharts@^0.2.3",
+    "rawSpec": "^0.2.3",
+    "scope": null,
+    "spec": ">=0.2.3 <0.3.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/ng2-highcharts/-/ng2-highcharts-0.2.5.tgz",
+  "_shasum": "c74ed6c404a13455fdc93d55593af8a4a30879ce",
+  "_shrinkwrap": null,
+  "_spec": "ng2-highcharts@^0.2.3",
+  "_where": "/home/marv/workspace/epic/distributed_hyrise/clustermanager/angular2-seed-ng2-highcharts",
+  "author": {
+    "email": "Bigous@users.noreply.github.com",
+    "name": "Richard Natal"
+  },
+  "bugs": {
+    "url": "https://github.com/Bigous/ng2-highcharts/issues"
+  },
+  "dependencies": {},
+  "description": "To install this library, install peer dependencies first:",
+  "devDependencies": {
+    "angular2": "2.0.0-beta.0",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.3",
+    "highcharts": "^4.2.1",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "typescript": "^1.7.3",
+    "zone.js": "0.5.10"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "c74ed6c404a13455fdc93d55593af8a4a30879ce",
+    "tarball": "http://registry.npmjs.org/ng2-highcharts/-/ng2-highcharts-0.2.5.tgz"
+  },
+  "engines": {
+    "node": ">=4.2.0"
+  },
+  "gitHead": "c8883e1c43852df946f551487f78491d1290d914",
+  "homepage": "https://github.com/Bigous/ng2-highcharts#readme",
+  "keywords": [
+    "angular",
+    "angular2",
+    "highcharts"
+  ],
+  "license": "MIT",
+  "main": "ng2-highcharts.js",
+  "maintainers": [
+    {
+      "name": "bigous",
+      "email": "bigous@gmail.com"
+    }
+  ],
+  "name": "ng2-highcharts",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bigous/ng2-highcharts.git"
+  },
+  "scripts": {
+    "prepublish": "tsd reinstall --clean && tsc",
+    "test": "tsd reinstall --clean tsc && echo No tests available yet...",
+    "tsc": "tsd reinstall --clean tsc"
+  },
+  "typings": "./ng2-highcharts.d.ts",
+  "version": "0.2.5"
+}

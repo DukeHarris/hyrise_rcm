@@ -1,0 +1,5 @@
+Flask
+Flask_SocketIO
+docker-py
+eventlet
+requests
