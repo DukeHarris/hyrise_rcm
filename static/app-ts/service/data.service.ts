@@ -1,6 +1,6 @@
 import {Injectable} from 'angular2/core';
 import {Node} from '../nodes/node';
-import {Instance} from '../manage/instance';
+import {Instance} from '../monitor/instance';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/share';
 
@@ -12,17 +12,17 @@ export class DataService {
     socket: any;
     private _nodesObserver: any;
     private _instancesObserver: any;
-    private _latenciesObserver: any;
+    private _throughputObserver: any;
     private _dataStore: {
         nodes: Array<Node>,
         instances: Array<Instance>,
-        latencies: {
+        throughput: {
             "system": Array<Array<number>>
         }
     };
     public nodes$: Observable<Array<Node>>;
     public instances$: Observable<Array<Instance>>;
-    public latencies$: Observable<Array<Instance>>;
+    public throughput$: Observable<Array<Instance>>;
 
     constructor() {
         var me = this;
@@ -37,11 +37,11 @@ export class DataService {
             this._nodesObserver = observer;
         }).share();
 
-        this.latencies$ = new Observable(observer => {
-            this._latenciesObserver = observer;
+        this.throughput$ = new Observable(observer => {
+            this._throughputObserver = observer;
         }).share();
 
-        this._dataStore = { instances: [], nodes: [], latencies: { "system": [] } };
+        this._dataStore = { instances: [], nodes: [], throughput: { "system": [] } };
 
 
 
@@ -59,15 +59,15 @@ export class DataService {
             console.log(msg.data);
         });
 
-        this.socket.on('latencies', (msg) => {
-            this._dataStore.latencies["system"].push(msg.data["system"]);
-            this._dataStore.latencies["system"].sort(function(a,b) {
+        this.socket.on('throughput', (msg) => {
+            this._dataStore.throughput["system"].push(msg.data["system"]);
+            this._dataStore.throughput["system"].sort(function(a,b) {
                 var x = a[0];
                 var y = b[0];
                 return y - x;
             });
-            if (this._latenciesObserver) // apparently an observer will only be created after something subscribed to the observable
-                this._latenciesObserver.next(msg.data);
+            if (this._throughputObserver) // apparently an observer will only be created after something subscribed to the observable
+                this._throughputObserver.next(msg.data);
             console.log(msg.data);
         });
     }
@@ -81,8 +81,8 @@ export class DataService {
         return this._dataStore.instances;
     }
 
-    getLatencies() {
-        return this._dataStore.latencies;
+    getThroughput() {
+        return this._dataStore.throughput;
     }
 
     startDispatcher(){
@@ -97,24 +97,16 @@ export class DataService {
         this.socket.emit('start_replica');
     }
 
+    removeReplica() {
+        this.socket.emit('remove_replica');
+    }
+
     resetInstances() {
         this.socket.emit('reset_instances');
     }
 
-    startWorkload() {
-        console.log("starting load");
-        this.socket.emit('set_mode', {mode: "load1"});
-    }
-
-    stopWorkload() {
-        this.socket.emit('set_mode', { mode: "idle" });
-    }
-
-    increaseWorkload() {
-        this.socket.emit('set_mode', { mode: "load2" });
-    }
-
-    autoScale() {
-        this.socket.emit('start_autoscale');
+    setWorkload(flag) {
+        console.log("set workloadload");
+        this.socket.emit('set_workload', { status: flag });
     }
 }

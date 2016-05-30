@@ -1,0 +1,7 @@
+*.DS_Store
+__pycache__
+npm-debug.log
+static/app
+static/node_modules
+static/npm-debug.log
+static/typings

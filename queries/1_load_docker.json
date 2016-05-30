@@ -1,0 +1,19 @@
+{
+"operators": {
+    
+    "load": {
+        "type": "TableLoad",
+        "table": "ORDER_LINE",
+        "filename": "ORDER_LINE.tbl",
+        "delimiter": "|",
+        "path": "/home/hyrise/hyrise_nvm"
+        },
+
+    "NoOp": {
+        "type" : "NoOp"
+        }
+
+    },
+
+"edges" : [ ["load","load"] ]
+}

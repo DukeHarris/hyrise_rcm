@@ -4,12 +4,11 @@ import {Instance} from './instance';
 @Component({
   selector: 'instance-tile',
   template: `
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <div class="tile">
           <h3 class="title">{{instance.type}}</h3>
-          <p>Node: <b>{{instance.node}}</b></p>
-          <p>Load: <b>{{instance.load}}</b></p>
-          <p *ngIf="instance.type != 'dispatcher'" >Avg Latency: <b>{{instance.avgLatency}}</b></p>
+          <p>Hostname: <b>{{instance.node}}</b></p>
+          <p *ngIf="instance.type != 'Dispatcher'" ># Queries: <b>{{instance.queries}}</b></p>
         </div>
       </div>
     `,
