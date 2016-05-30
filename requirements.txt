@@ -1,5 +1,5 @@
 Flask
-Flask_SocketIO
+flask-socketio
 docker-py
 eventlet
 requests

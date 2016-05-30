@@ -4,7 +4,7 @@ import time
 from threading import Thread
 
 from flask import *
-from flask.ext.socketio import SocketIO, emit
+from flask_socketio import SocketIO, emit
 
 from SwarmConnector import SwarmConnector
 from query_hyrise import benchmark, query_hyrise
